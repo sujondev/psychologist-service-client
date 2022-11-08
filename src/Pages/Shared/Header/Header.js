@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
-            <Navbar className='shadow mt-2' expand="lg">
+            <Navbar style={{ backgroundColor: "rgb(255 255 255)" }} className='shadow mt-2 sticky-top' expand="lg">
                 <Container>
                     <Navbar.Brand href="#home"><img src="http://azim.commonsupport.com/Morriston/images/logo.png" alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
-            <Navbar expand="lg">
+            <Navbar className='shadow mt-2' expand="lg">
                 <Container>
                     <Navbar.Brand href="#home"><img src="http://azim.commonsupport.com/Morriston/images/logo.png" alt="" /></Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

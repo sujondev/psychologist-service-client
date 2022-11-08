@@ -1,0 +1,25 @@
+.banner {
+    background-color: rgb(247 247 247);
+    position: relative;
+
+}
+
+.bg-img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0.06;
+}
+
+.banner-text {
+    color: rgb(35 54 69);
+    font-size: 50px;
+}
+
+.banner-text strong {
+    font-weight: bold;
+}
+
+.banner-img {
+    width: 40%;
+}

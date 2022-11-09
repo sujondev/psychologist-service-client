@@ -5,6 +5,7 @@ import Home from './Pages/Home/Home/Home';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/SignUp/SignUp';
 import AllServices from './Pages/Home/AllServices/AllServices';
+import ServiceDetails from './Pages/Home/ServiceDetails/ServiceDetails';
 
 function App() {
   const router = createBrowserRouter([
@@ -28,7 +29,13 @@ function App() {
           path: "/allservices",
           loader: () => fetch("http://localhost:5000/services"),
           element: <AllServices></AllServices>
+        },
+        {
+          path: "/service/:id",
+          loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+          element: <ServiceDetails></ServiceDetails>
         }
+
       ]
     }
   ])

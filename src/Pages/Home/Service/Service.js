@@ -1,11 +1,12 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 const Service = ({ service }) => {
-    const { title, img, price, description, _id } = service
+    const { title, img, price, description, _id } = service;
     return (
-        <div className='col-4'>
+        <div className='col-lg-4 col-md-6 col-12'>
             <Card style={{ width: '100%' }}>
                 <Card.Img variant="top" src={img} />
                 <Card.Body>
@@ -14,7 +15,7 @@ const Service = ({ service }) => {
                         {description.length > 100 ? description.slice(0, 100) + " ..." : { description }}
                     </Card.Text>
                     <p className='fw-semibold'>Price: ${price}</p>
-                    <Button variant="primary">veiw details</Button>
+                    <Link to={`/service/${_id}`}><Button variant="primary">veiw details</Button></Link>
                 </Card.Body>
             </Card>
         </div>

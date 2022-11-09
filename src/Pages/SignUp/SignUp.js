@@ -2,13 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+    const handleSignUp = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.vlaue;
+        const photoUrl = form.photoUrl.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+    }
     return (
         <div className='container d-flex justify-content-between mt-5 shadow p-4'>
             <div>
                 <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="" />
             </div>
             <div className="Auth-form-container mx-auto">
-                <form className="Auth-form">
+                <form onSubmit={handleSignUp} className="Auth-form">
                     <div className="Auth-form-content">
                         <h3 className="Auth-form-title">Sign Up</h3>
                         <div className="form-group mt-3">

@@ -5,7 +5,7 @@ const Banner = () => {
     return (
         <div className='banner'>
             <div className='bg-img'>
-                <img src="https://validthemes.live/themeforest/healdi/assets/img/shape/1.png" alt="" />
+                <img className='img-fluid' src="https://validthemes.live/themeforest/healdi/assets/img/shape/1.png" alt="" />
             </div>
             <div className='d-flex flex-column-reverse flex-md-row mt-4 justify-content-evenly align-items-center'>
                 <div className='p-5'>

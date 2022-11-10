@@ -19,7 +19,10 @@ const Header = () => {
                             <Link className='text-decoration-none nav-item me-4' to="/">Home</Link>
                             <Link className='text-decoration-none nav-item me-4' to="/blog">Blog</Link>
                             {
-                                user ? <><button onClick={logout} className='btn btn-warning text-white fw-semibold'>Logout</button></>
+                                user ? <>
+                                    <Link className='text-decoration-none nav-item me-4' to="/addservice">Add services</Link>
+                                    <button onClick={logout} className='btn btn-warning text-white fw-semibold'>Logout</button>
+                                </>
                                     :
                                     <Link className='text-decoration-none nav-item me-4' to="/login">Login</Link>
                             }

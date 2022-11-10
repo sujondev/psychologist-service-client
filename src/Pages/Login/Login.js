@@ -1,18 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import "./Login.css"
 
 const Login = () => {
+    const { login } = useContext(AuthContext)
     const handleLoign = event => {
         event.preventDefault()
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        login(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success("login sucessfully")
+                form.reset()
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+
     }
     return (
-        <div className='container d-flex justify-content-between mt-5 shadow p-4'>
+        <div className='container d-flex flex-column flex-md-row justify-content-between mt-5 shadow p-4'>
             <div>
-                <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="" />
+                <img className='mb-3' src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="" />
             </div>
             <div className="Auth-form-container mx-auto">
                 <form onSubmit={handleLoign} className="Auth-form">

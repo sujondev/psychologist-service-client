@@ -1,20 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import toast from 'react-hot-toast';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignUp = () => {
+
+    const { createUser, googleSignIn } = useContext(AuthContext)
+    const provider = new GoogleAuthProvider()
+
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.vlaue;
-        const photoUrl = form.photoUrl.value;
+        const photoURL = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
+        createUser(email, password)
+            .then(result => {
+                const user = result.user;
+                toast.success("signup succesfull")
+                form.reset()
+            })
+            .catch(error => {
+                const errorMessage = error.message
+                toast.error(errorMessage)
+            })
 
     }
+
+    const handlegoogleSignIN = () => {
+        googleSignIn(provider)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                toast.success("singIn successfull")
+            })
+            .catch(error => {
+                toast.error(error.message)
+            })
+    }
     return (
-        <div className='container d-flex justify-content-between mt-5 shadow p-4'>
+        <div className='container d-flex flex-column flex-md-row justify-content-between mt-5 shadow p-4 w-100'>
             <div>
-                <img src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="" />
+                <img className='mb-3' src="https://colorlib.com/etc/lf/Login_v1/images/img-01.png" alt="" />
             </div>
             <div className="Auth-form-container mx-auto">
                 <form onSubmit={handleSignUp} className="Auth-form">
@@ -70,6 +100,7 @@ const SignUp = () => {
                         </p>
                     </div>
                 </form>
+                <button onClick={handlegoogleSignIN} style={{ color: "rgba(0, 0, 0, 0.54)", width: "300px" }} className='btn btn-light fw-semibold shadow mt-4 py-2 px-2'> <FcGoogle className='fs-3'></FcGoogle> <span className='ps-2' style={{ fontSize: "18px" }}>Continue with Google</span></button>
             </div>
         </div>
     );

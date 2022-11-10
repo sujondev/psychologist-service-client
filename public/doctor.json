@@ -1,0 +1,17 @@
+[
+    {
+        "name": "James Anderson",
+        "img": "https://templates.envytheme.com/psylo/default/assets/images/coaches/coaches-1.jpg",
+        "catgeory": "DEPRESSION"
+    },
+    {
+        "name": "Sarah Taylor",
+        "img": "https://templates.envytheme.com/psylo/default/assets/images/coaches/coaches-2.jpg",
+        "catgeory": "RELATIONSHIP"
+    },
+    {
+        "name": "John Terry",
+        "img": "https://templates.envytheme.com/psylo/default/assets/images/coaches/coaches-6.jpg",
+        "catgeory": "MEDITATION"
+    }
+]

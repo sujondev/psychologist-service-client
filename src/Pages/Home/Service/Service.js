@@ -12,7 +12,7 @@ const Service = ({ service }) => {
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>
-                        {description.length > 100 ? description.slice(0, 100) + " ..." : { description }}
+                        {description?.length > 100 ? description?.slice(0, 100) + " ..." : { description }}
                     </Card.Text>
                     <p className='fw-semibold'>Price: ${price}</p>
                     <Link to={`/service/${_id}`}><Button variant="primary">veiw details</Button></Link>

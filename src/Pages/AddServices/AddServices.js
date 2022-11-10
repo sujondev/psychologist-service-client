@@ -9,9 +9,17 @@ const AddServices = () => {
         const img = form.servicePhoto.value;
         const price = form.price.value;
         const description = form.serviceDescription.value;
-        // console.log(title, img, price, description)
         const service = { title, img, price, description }
-        console.log(service)
+        fetch('http://localhost:5000/addservice', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(service)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+
     }
     return (
         <div className='container mt-5 shadow p-4'>

@@ -11,7 +11,7 @@ const ServiceDetails = () => {
     const { img, description, title, _id } = service;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reveiw?serviceId=${_id}`)
+        fetch(`https://psychologist-service-server.vercel.app/reveiw?serviceId=${_id}`)
             .then(res => res.json())
             .then(data => setReveiws(data))
     }, [_id])
@@ -25,7 +25,7 @@ const ServiceDetails = () => {
         const email = user.email;
         const photoURL = user.photoURL;
         const reveiw = { reveiwText, email, serviceId: _id, photoURL, name }
-        fetch("http://localhost:5000/reveiw", {
+        fetch("https://psychologist-service-server.vercel.app/reveiw", {
             method: "POST",
             headers: {
                 "content-type": "application/json"

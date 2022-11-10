@@ -9,7 +9,8 @@ import ServiceDetails from './Pages/Home/ServiceDetails/ServiceDetails';
 import { Toaster } from 'react-hot-toast';
 import AddServices from './Pages/AddServices/AddServices';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
-import MyReveiw from './Pages/MyReveiw/MyReveiw';
+import MyReveiws from './Pages/MyReveiws/MyReveiws';
+import Blogs from './Pages/Blogs/Blogs';
 
 function App() {
   const router = createBrowserRouter([
@@ -31,18 +32,23 @@ function App() {
         },
         {
           path: "/allservices",
-          loader: () => fetch("http://localhost:5000/services"),
+          loader: () => fetch("https://psychologist-service-server.vercel.app/services"),
           element: <AllServices></AllServices>
         },
         {
           path: "/service/:id",
-          loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`),
+          loader: ({ params }) => fetch(`https://psychologist-service-server.vercel.app/service/${params.id}`),
           element: <ServiceDetails></ServiceDetails>
         },
 
         {
-          path: "/myreveiw",
-          element: <MyReveiw></MyReveiw>
+          path: "/myreveiws",
+          element: <MyReveiws></MyReveiws>
+        },
+
+        {
+          path: "/blogs",
+          element: <Blogs></Blogs>
         },
 
         {

@@ -17,11 +17,11 @@ const Header = () => {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className="ms-auto">
                             <Link className='text-decoration-none nav-item me-4' to="/">Home</Link>
-                            <Link className='text-decoration-none nav-item me-4' to="/blog">Blog</Link>
+                            <Link className='text-decoration-none nav-item me-4' to="/blogs">Blog</Link>
                             {
                                 user ? <>
                                     <Link className='text-decoration-none nav-item me-4' to="/addservice">Add services</Link>
-                                    <Link className='text-decoration-none nav-item me-4' to="/myreveiw">My Reveiw</Link>
+                                    <Link className='text-decoration-none nav-item me-4' to="/myreveiws">My Reveiw</Link>
                                     <button onClick={logout} className='btn btn-warning text-white fw-semibold'>Logout</button>
                                 </>
                                     :

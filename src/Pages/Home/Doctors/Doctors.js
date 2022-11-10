@@ -4,7 +4,7 @@ import Doctor from '../Doctor/Doctor';
 const Doctors = () => {
     const [serviceProvider, setServiceProvider] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/serviceProvider')
+        fetch('https://psychologist-service-server.vercel.app/serviceProvider')
             .then(res => res.json())
             .then(data => setServiceProvider(data))
     }, [])

@@ -2,16 +2,16 @@ import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-const MyReveiw = () => {
+const MyReveiw = ({ myreveiw }) => {
+    const { photoURL, name, reveiwText } = myreveiw;
     return (
-        <div>
-            <Card style={{ width: '100%' }}>
-                <Card.Img variant="top" src="holder.js/100px180" />
+        <div className='col-lg-4 col-md-6 col-12'>
+            <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={photoURL} />
                 <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
+                    <Card.Title>{name}</Card.Title>
                     <Card.Text>
-                        Some quick example text to build on the card title and make up the
-                        bulk of the card's content.
+                        {reveiwText}
                     </Card.Text>
                     <div className='d-flex justify-content-between'>
                         <Button variant="primary">Update</Button>

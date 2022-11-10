@@ -8,6 +8,7 @@ import AllServices from './Pages/Home/AllServices/AllServices';
 import ServiceDetails from './Pages/Home/ServiceDetails/ServiceDetails';
 import { Toaster } from 'react-hot-toast';
 import AddServices from './Pages/AddServices/AddServices';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 function App() {
   const router = createBrowserRouter([
@@ -40,7 +41,9 @@ function App() {
 
         {
           path: '/addservice',
-          element: <AddServices></AddServices>
+          element: <PrivateRoute>
+            <AddServices></AddServices>
+          </PrivateRoute>
         }
 
 

@@ -7,20 +7,30 @@ import { GoogleAuthProvider } from 'firebase/auth';
 
 const SignUp = () => {
 
-    const { createUser, googleSignIn } = useContext(AuthContext)
+    const { createUser, googleSignIn, profileUpdate } = useContext(AuthContext)
     const provider = new GoogleAuthProvider()
 
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
-        const name = form.name.vlaue;
+        const name = form.name.value;
         const photoURL = form.photoUrl.value;
         const email = form.email.value;
         const password = form.password.value;
+        const handleProfile = (name, photoURL) => {
+            const profile = { displayName: name, photoURL }
+            profileUpdate(profile)
+                .then(() => { })
+                .catch(error => console.error(error))
+        }
+
+
+
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 toast.success("signup succesfull")
+                handleProfile(name, photoURL)
                 form.reset()
             })
             .catch(error => {

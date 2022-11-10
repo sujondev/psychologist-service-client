@@ -1,12 +1,23 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
+import Reveiw from '../Reveiw/Reveiw';
 
 const ServiceDetails = () => {
     const { user } = useContext(AuthContext)
+    const [reveiws, setReveiws] = useState([])
     const service = useLoaderData()
     const { img, description, title, _id } = service;
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reveiw?serviceId=${_id}`)
+            .then(res => res.json())
+            .then(data => setReveiws(data))
+    }, [_id])
+
+
+
     const handleReveiw = event => {
         event.preventDefault()
         const reveiwText = event.target.reveiw.value;
@@ -42,6 +53,9 @@ const ServiceDetails = () => {
                     <img className='img-fluid' src={img} alt="" />
                 </div>
             </div>
+            {
+                reveiws.map(reveiw => <Reveiw key={reveiw._id} reveiw={reveiw}></Reveiw>)
+            }
             {
                 user ? <>
                     <form onSubmit={handleReveiw} className='container shadow p-4 mt-5'>

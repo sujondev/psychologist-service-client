@@ -21,6 +21,7 @@ const Header = () => {
                             {
                                 user ? <>
                                     <Link className='text-decoration-none nav-item me-4' to="/addservice">Add services</Link>
+                                    <Link className='text-decoration-none nav-item me-4' to="/myreveiw">My Reveiw</Link>
                                     <button onClick={logout} className='btn btn-warning text-white fw-semibold'>Logout</button>
                                 </>
                                     :

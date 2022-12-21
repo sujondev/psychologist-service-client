@@ -43,7 +43,9 @@ function App() {
 
         {
           path: "/myreveiws",
-          element: <MyReveiws></MyReveiws>
+          element: <PrivateRoute>
+            <MyReveiws></MyReveiws>
+          </PrivateRoute>
         },
 
         {
